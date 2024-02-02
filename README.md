@@ -1,5 +1,6 @@
 # mkdocs-docker-gitlab-pipeline
-mkdocs website deployment using docker with gitlab ci/cd pipeline
+
+Mkdocs production website using NGINX running on Docker updated with Gitlab CI/CD Pipeline
 
 # How to
 

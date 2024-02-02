@@ -1,0 +1,34 @@
+# Project information
+site_name: <website-name>
+site_url: <website-url>
+site_author: <website-author>
+site_description: >-
+  <website-description>
+
+# Copyright
+copyright: Copyright &copy; <copyright>. All rights reserved. 
+
+theme:
+  name: material
+  greetings: <website-greetings>
+  language: en
+  palette:
+    scheme: slate
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.ico
+  logo: assets/logo.svg
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+# Content
+nav:
+  - Welcome: index.md
+  - Topics:
+    - Topic1: topic1.md

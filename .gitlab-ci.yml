@@ -1,0 +1,31 @@
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  script:
+    - cd tests
+    - sh run_tests.sh
+
+build:
+  stage: build
+  script:
+    - python3.11 -m venv venv
+    - source venv/bin/activate
+    - python -m pip install --upgrade pip
+    - python -m pip install -r requirements.txt
+    - mkdocs build
+
+deploy:
+  rules:
+     - when: manual
+  stage: deploy
+  script:
+    - podman build -t localhost/<image-name>:latest .
+    - podman stop <container-name>
+    - podman rm <container-name>
+    - podman image rm localhost/<container-name>:latest
+    - podman run -d --name <container-name> -p 0.0.0.0:3000:3000 localhost/<image-name>:latest
+  environment: production
